@@ -1,33 +1,26 @@
-// import { useState } from 'react'
-
-
 import Header from "./components/Header";
 import Tabs from "./components/Tabs";
 import TodoList from "./components/TodoList";
 import TodoInput from "./components/TodoInput";
+import { useState } from "react";
 
 function App() {
+ 
 
-  const todos = [
-    { input: "First TODO item", complete: true },
-    { input: "Go to the Gym", complete: false },
-    { input: "eat food ", complete: true },
-    { input: "Study for exams", complete: false },
-  ];
+  const [todos, setTodos] = useState([
+    { input: "Hello! Add your first todo!", complete: true },
+  ]);
 
+  function handelCompleteTodo(todoIndex) {}
+  function handelDeleteTodo(todoIndex) {}
+  function handelEditTodo(todoIndex) {}
+  function handelSaveTodos() {}
 
-function handelCompleteTodo(todoIndex) {
-  
-}
-function handelDeleteTodo(todoIndex) {
-  
-}
-function handelEditTodo(todoIndex) {
-  
-}
-function handelSaveTodos() {
-  
-}
+  function handelAddTodo(value) {
+    const newTodoList = [...todos, { input: value, complete: false }];
+
+    setTodos(newTodoList);
+  }
 
   return (
     <>
@@ -38,7 +31,7 @@ function handelSaveTodos() {
         handelCompleteTodo={handelCompleteTodo}
         handelDeleteTodo={handelDeleteTodo}
       />
-      <TodoInput todos={todos} />
+      <TodoInput handelAddTodo={handelAddTodo} />
     </>
   );
 }
