@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 const TodoInput = (props) => {
 
-  const { todos } = props
+  const { handelAddTodo } = props;
   
   const [inputValue, setInputValue] = useState('')
   return (
