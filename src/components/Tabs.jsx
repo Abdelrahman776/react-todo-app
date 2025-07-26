@@ -3,7 +3,6 @@ import React from "react";
 const Tabs = ({todos}) => {
   const tabs = ["All", "Completed", "Open"];
 
-  // let tab= 'All'
   
   return (
     <div className="tab-container">
