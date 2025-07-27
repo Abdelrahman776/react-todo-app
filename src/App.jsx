@@ -11,6 +11,8 @@ function App() {
     { input: "Hello! Add your first todo!", complete: true },
   ]);
 
+  const [selectedTab, setSelectedTab]=useState('All')
+
   function handelCompleteTodo(todoIndex) {}
   function handelDeleteTodo(todoIndex) {}
   function handelEditTodo(todoIndex) {}
@@ -25,9 +27,10 @@ function App() {
   return (
     <>
       <Header todos={todos} />
-      <Tabs todos={todos} />
+      <Tabs todos={todos} setSelectedTab={setSelectedTab} />
       <TodoList
         todos={todos}
+        selectedTab={selectedTab}
         handelCompleteTodo={handelCompleteTodo}
         handelDeleteTodo={handelDeleteTodo}
       />

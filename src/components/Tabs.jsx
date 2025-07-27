@@ -1,9 +1,8 @@
 import React from "react";
 
-const Tabs = ({todos}) => {
+const Tabs = ({ todos,  setSelectedTab }) => {
   const tabs = ["All", "Completed", "Open"];
 
-  
   return (
     <div className="tab-container">
       {tabs.map((tab, tabIndex) => {
@@ -14,9 +13,13 @@ const Tabs = ({todos}) => {
             ? todos.filter((todo) => todo.complete).length
             : todos.filter((todo) => !todo.complete).length;
 
-  
         return (
-          <button key={tabIndex} className="tab-button">
+          <button key={tabIndex} className="tab-button"
+            onClick={() => {
+              setSelectedTab(tab)
+            console.log(tab);
+            
+          }}>
             {tab}
             <span> ({numberOfTodosPerTab})</span>
           </button>
