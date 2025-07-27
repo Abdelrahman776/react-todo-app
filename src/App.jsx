@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import Tabs from "./components/Tabs";
 import TodoList from "./components/TodoList";
 import TodoInput from "./components/TodoInput";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -14,10 +14,18 @@ function App() {
   const inputRef = useRef(null);
 const [inputValue, setInputValue] = useState("");
 
+    function handelAddTodo(value) {
+      const newTodoList = [...todos, { input: value, complete: false }];
+
+      setTodos(newTodoList);
+      handelSaveTodos(newTodoList);
+    }
+  
   function handelCompleteTodo(todoIndex) {
     let newTodoList = [...todos];
     newTodoList[todoIndex].complete = !newTodoList[todoIndex].complete;
     setTodos(newTodoList);
+    handelSaveTodos(newTodoList)
   }
   function handelDeleteTodo(todoIndex) {
     let newTodoList = todos.filter((item, index) => {
@@ -25,6 +33,7 @@ const [inputValue, setInputValue] = useState("");
     });
 
     setTodos(newTodoList);
+    handelSaveTodos(newTodoList)
   }
   function handelEditTodo(todoIndex) {
     inputRef.current.focus();
@@ -36,13 +45,23 @@ const [inputValue, setInputValue] = useState("");
 
     handelDeleteTodo(todoIndex);
   }
-  function handelSaveTodos() {}
-
-  function handelAddTodo(value) {
-    const newTodoList = [...todos, { input: value, complete: false }];
-
-    setTodos(newTodoList);
+  function handelSaveTodos(newTodoList) {
+    localStorage.setItem(
+      "f-todo-app",
+      JSON.stringify({ TodoList: newTodoList })
+    );
   }
+  
+  useEffect(() => {
+    
+    if (!todos || !localStorage.getItem("f-todo-app")) {
+      return;
+    }
+    let db=JSON.parse(localStorage.getItem('f-todo-app')) 
+
+  setTodos(db.TodoList)
+}, [])
+
 
   return (
     <>
