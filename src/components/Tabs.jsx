@@ -17,7 +17,6 @@ const Tabs = ({ todos,  setSelectedTab }) => {
           <button key={tabIndex} className="tab-button"
             onClick={() => {
               setSelectedTab(tab)
-            console.log(tab);
             
           }}>
             {tab}

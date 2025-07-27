@@ -10,12 +10,12 @@ const { todo, unfilteredTodoIndex, handelCompleteTodo, handelDeleteTodo } =
 
       <button
         className="button-card"
-        disabled={todo.complete}
+        // disabled={todo.complete}
         onClick={() => {
           handelCompleteTodo(unfilteredTodoIndex);
         }}
       >
-        <h6>Complete</h6>
+        <h6>{!todo.complete?'Complete':'Uncomplete'}</h6>
       </button>
       <button
         className="button-card"

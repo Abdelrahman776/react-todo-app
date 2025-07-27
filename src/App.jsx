@@ -5,16 +5,25 @@ import TodoInput from "./components/TodoInput";
 import { useState } from "react";
 
 function App() {
- 
-
   const [todos, setTodos] = useState([
     { input: "Hello! Add your first todo!", complete: true },
   ]);
 
-  const [selectedTab, setSelectedTab]=useState('All')
+  const [selectedTab, setSelectedTab] = useState("All");
 
-  function handelCompleteTodo(todoIndex) {}
-  function handelDeleteTodo(todoIndex) {}
+  function handelCompleteTodo(todoIndex) {
+    let newTodoList = [...todos];
+    newTodoList[todoIndex].complete = !newTodoList[todoIndex].complete;
+    setTodos(newTodoList);
+  }
+  function handelDeleteTodo(todoIndex) {
+    let newTodoList = [...todos];
+    newTodoList = newTodoList.filter((item, index) => {
+      return index !== todoIndex;
+    });
+
+    setTodos(newTodoList);
+  }
   function handelEditTodo(todoIndex) {}
   function handelSaveTodos() {}
 
