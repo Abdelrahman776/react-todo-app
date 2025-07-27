@@ -1,12 +1,115 @@
-# React + Vite
+# ✨ React Todo Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive Todo application built with React, featuring a clean UI and local storage persistence. Manage your tasks efficiently with basic CRUD operations and filtering capabilities.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## � Screenshot
 
-## Expanding the ESLint configuration
+![alt text](image.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## �🚀 Features
+
+- ✅ Create, Read, Update, and Delete todos
+- 🔍 Filter todos by status (All, Open, Completed)
+- 💾 Persistent storage using localStorage
+- ⌨️ Keyboard shortcuts for quick task addition
+- 📱 Responsive design for all devices
+
+## 🛠️ Technologies Used
+
+- React.js
+- Vite
+- CSS for styling
+- Local Storage API
+- Font Awesome icons
+
+## 💻 Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone [your-repo-link]
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd react-todo-app
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+```
+
+## 🎯 Usage
+
+1. **Adding a Todo**:
+
+   - Type your task in the input field
+   - Press Enter or click the '+' button
+
+2. **Completing a Todo**:
+
+   - Click the checkbox next to the todo
+
+3. **Editing a Todo**:
+
+   - Click the edit icon to modify the todo
+   - The text will appear in the input field
+   - Make your changes and submit
+
+4. **Deleting a Todo**:
+
+   - Click the delete icon to remove the todo
+
+5. **Filtering Todos**:
+   - Use the tabs to filter between All, Active, and Completed todos
+
+## 🌟 Key Features Explained
+
+### Local Storage Persistence
+
+The application automatically saves your todos to the browser's local storage, ensuring your tasks persist between sessions.
+
+### Responsive Design
+
+The UI adapts seamlessly to different screen sizes, providing a consistent experience across devices.
+
+### Keyboard Support
+
+Enhance productivity with keyboard shortcuts:
+
+- `Enter`: Add new todo
+- Quick focus management for smooth task entry
+
+## 📝 Component Structure
+
+- `App.jsx`: Main component managing state and CRUD operations
+- `Header.jsx`: Displays the application header
+- `Tabs.jsx`: Handles filtering functionality
+- `TodoList.jsx`: Renders the list of todos
+- `TodoCard.jsx`: Individual todo item component
+- `TodoInput.jsx`: Handles new todo input
+
+
+
+## 📜 License
+
+This project is open source and available under the [MIT License](LICENSE).
