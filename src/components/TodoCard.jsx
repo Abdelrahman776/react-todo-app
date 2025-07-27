@@ -1,12 +1,24 @@
 import React from 'react'
 
 function TodoCard (props) {
-const { todo, unfilteredTodoIndex, handelCompleteTodo, handelDeleteTodo } =
-  props;
+const {
+  todo,
+  unfilteredTodoIndex,
+  handelCompleteTodo,
+  handelDeleteTodo,
+  handelEditTodo,
+} = props;
 
   return (
     <div className="card">
-      {todo.input}
+      <span 
+        className="todoInputText"
+        onClick={() => {
+          handelEditTodo(unfilteredTodoIndex);
+        }}
+      >
+        {todo.input}
+      </span>
 
       <button
         className="button-card"
@@ -15,7 +27,7 @@ const { todo, unfilteredTodoIndex, handelCompleteTodo, handelDeleteTodo } =
           handelCompleteTodo(unfilteredTodoIndex);
         }}
       >
-        <h6>{!todo.complete?'Complete':'Uncomplete'}</h6>
+        <h6>{!todo.complete ? "Complete" : "Uncomplete"}</h6>
       </button>
       <button
         className="button-card"

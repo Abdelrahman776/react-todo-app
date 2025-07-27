@@ -1,11 +1,10 @@
 import React from 'react'
-import { useState } from 'react'
 
 const TodoInput = (props) => {
 
-  const { handelAddTodo, inputRef } = props;
+  const { handelAddTodo, inputRef, inputValue,setInputValue } = props;
   
-  const [inputValue, setInputValue] = useState('')
+  
   return (
     <div className="input-container">
       <input

@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import Tabs from "./components/Tabs";
 import TodoList from "./components/TodoList";
 import TodoInput from "./components/TodoInput";
-import { useState ,useRef} from "react";
+import { useState, useRef } from "react";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -11,7 +11,9 @@ function App() {
 
   const [selectedTab, setSelectedTab] = useState("All");
 
-  const inputRef = useRef(null)
+  const inputRef = useRef(null);
+const [inputValue, setInputValue] = useState("");
+
   function handelCompleteTodo(todoIndex) {
     let newTodoList = [...todos];
     newTodoList[todoIndex].complete = !newTodoList[todoIndex].complete;
@@ -24,7 +26,22 @@ function App() {
 
     setTodos(newTodoList);
   }
-  function handelEditTodo(todoIndex) {}
+  function handelEditTodo(todoIndex) {
+    inputRef.current.focus();
+
+    let newTodoList = [...todos];
+
+    let todoContent = newTodoList[todoIndex].input;
+    setInputValue(todoContent);
+
+    //  let filteredTodoList = newTodoList.filter(
+    //    (item, index) => index !== todoIndex
+    //  );
+
+    //  // Step 5: update todos
+    //  setTodos(filteredTodoList);
+    handelDeleteTodo(todoIndex);
+  }
   function handelSaveTodos() {}
 
   function handelAddTodo(value) {
@@ -42,8 +59,12 @@ function App() {
         selectedTab={selectedTab}
         handelCompleteTodo={handelCompleteTodo}
         handelDeleteTodo={handelDeleteTodo}
+        handelEditTodo={handelEditTodo}
       />
-      <TodoInput handelAddTodo={handelAddTodo} inputRef={inputRef} />
+      <TodoInput handelAddTodo={handelAddTodo}
+        inputRef={inputRef} 
+        inputValue={inputValue} 
+        setInputValue={setInputValue} />
     </>
   );
 }
