@@ -34,12 +34,6 @@ const [inputValue, setInputValue] = useState("");
     let todoContent = newTodoList[todoIndex].input;
     setInputValue(todoContent);
 
-    //  let filteredTodoList = newTodoList.filter(
-    //    (item, index) => index !== todoIndex
-    //  );
-
-    //  // Step 5: update todos
-    //  setTodos(filteredTodoList);
     handelDeleteTodo(todoIndex);
   }
   function handelSaveTodos() {}
