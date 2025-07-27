@@ -66,7 +66,7 @@ const [inputValue, setInputValue] = useState("");
   return (
     <>
       <Header todos={todos} />
-      <Tabs todos={todos} setSelectedTab={setSelectedTab} />
+      <Tabs todos={todos} setSelectedTab={setSelectedTab}  selectedTab={selectedTab} />
       <TodoList
         todos={todos}
         selectedTab={selectedTab}
