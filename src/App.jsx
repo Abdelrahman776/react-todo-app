@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import Tabs from "./components/Tabs";
 import TodoList from "./components/TodoList";
 import TodoInput from "./components/TodoInput";
-import { useState } from "react";
+import { useState ,useRef} from "react";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -11,14 +11,14 @@ function App() {
 
   const [selectedTab, setSelectedTab] = useState("All");
 
+  const inputRef = useRef(null)
   function handelCompleteTodo(todoIndex) {
     let newTodoList = [...todos];
     newTodoList[todoIndex].complete = !newTodoList[todoIndex].complete;
     setTodos(newTodoList);
   }
   function handelDeleteTodo(todoIndex) {
-    let newTodoList = [...todos];
-    newTodoList = newTodoList.filter((item, index) => {
+    let newTodoList = todos.filter((item, index) => {
       return index !== todoIndex;
     });
 
@@ -43,7 +43,7 @@ function App() {
         handelCompleteTodo={handelCompleteTodo}
         handelDeleteTodo={handelDeleteTodo}
       />
-      <TodoInput handelAddTodo={handelAddTodo} />
+      <TodoInput handelAddTodo={handelAddTodo} inputRef={inputRef} />
     </>
   );
 }

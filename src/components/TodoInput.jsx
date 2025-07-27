@@ -3,12 +3,13 @@ import { useState } from 'react'
 
 const TodoInput = (props) => {
 
-  const { handelAddTodo } = props;
+  const { handelAddTodo, inputRef } = props;
   
   const [inputValue, setInputValue] = useState('')
   return (
     <div className="input-container">
       <input
+        ref={inputRef}
         value={inputValue}
         type="text"
         onChange={(event) => {
@@ -22,6 +23,7 @@ const TodoInput = (props) => {
           if (!inputValue) { return; }
           handelAddTodo(inputValue)
           setInputValue('')
+          inputRef.current.focus();
       }}>
         <i className="fa-sharp fa-solid fa-plus"></i>
       </button>
