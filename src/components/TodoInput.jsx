@@ -15,6 +15,17 @@ const TodoInput = (props) => {
           setInputValue(event.target.value);
         }}
         placeholder="Add Task"
+        
+        onKeyDown={(event) => {
+          
+
+          
+          if (inputValue && event.key === "Enter") {
+            handelAddTodo(inputValue);
+            setInputValue("");
+            inputRef.current.focus();
+          }
+        }}
       />
 
       <button
