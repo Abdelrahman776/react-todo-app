@@ -1,6 +1,6 @@
 import React from "react";
 
-const Tabs = ({ todos,  setSelectedTab }) => {
+const Tabs = ({ todos, selectedTab ,setSelectedTab }) => {
   const tabs = ["All", "Completed", "Open"];
 
   return (
@@ -14,7 +14,7 @@ const Tabs = ({ todos,  setSelectedTab }) => {
             : todos.filter((todo) => !todo.complete).length;
 
         return (
-          <button key={tabIndex} className="tab-button"
+          <button key={tabIndex} className={"tab-button " + (tab == selectedTab ? ' tab-selected' : ' ')}
             onClick={() => {
               setSelectedTab(tab)
             
