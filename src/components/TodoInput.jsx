@@ -23,7 +23,7 @@ const TodoInput = (props) => {
           handelAddTodo(inputValue)
           setInputValue('')
       }}>
-        <i class="fa-sharp fa-solid fa-plus"></i>
+        <i className="fa-sharp fa-solid fa-plus"></i>
       </button>
     </div>
   );
