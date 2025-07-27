@@ -5,7 +5,7 @@ const Header = ({ todos }) => {
   return (
     <>
       <header>
-        <h1>
+        <h1 className="text-gradient" >
           you have {numberOfTodoItems}
           {numberOfTodoItems === 1 ? " task" : " tasks"}
         </h1>
